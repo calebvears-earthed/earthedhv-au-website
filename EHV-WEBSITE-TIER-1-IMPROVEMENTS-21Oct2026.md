@@ -3,7 +3,7 @@
 **Prepared · 21 October 2026**  
 **By · Earthed High Voltage Pty Ltd**
 
-Current status after today's patch: viewport meta added, mobile responsive CSS injected, SEO tags live, mailto: form replaced with Formspree placeholder (Caleb to insert endpoint ID). Site is now serviceable on mobile · but the following ten changes will materially move the needle on traffic, trust, and conversion.
+Current status after today's patch: viewport meta added, mobile responsive CSS injected, SEO tags live, mailto: form replaced with Formspree endpoint `https://formspree.io/f/mvkzjdwe`. Site is now serviceable on mobile · but the following ten changes will materially move the needle on traffic, trust, and conversion.
 
 Ranked by impact per hour of effort.
 
@@ -20,9 +20,9 @@ Ranked by impact per hour of effort.
 
 ## 2 · Create the Formspree endpoint and swap the placeholder
 
-**Current** · form action is `https://formspree.io/f/REPLACE_WITH_EHV_FORMSPREE_ID` after today's patch.  
+**Current** · form action is `https://formspree.io/f/mvkzjdwe` (endpoint ID `mvkzjdwe`). Wired 23 Oct on `feat/mobile-plus-forms`: named fields, honeypot, loading + error states, redirect to `/thank-you`.  
 **Impact** · without this swap, every enquiry submitted will fail silently. We lose 100% of inbound leads.  
-**Fix** · log into Formspree (same account you use for earthedenergy.au), create a new form for earthedhv.au, enable email notification to `caleb@earthedhv.au`, grab the endpoint ID (format `f/xyzabc123`), replace the placeholder in `index.html`.  
+**Fix** · log into Formspree (same account you use for earthedenergy.au), create a new form for earthedhv.au, enable email notification to `caleb@earthedhv.au`, endpoint ID `mvkzjdwe` is now in `index.html`.  
 **ETA** · 10 minutes.  
 **Related** · set up a dedicated inbox `enquiries@earthedhv.au` so form submissions don't clutter your personal inbox.
 
@@ -32,7 +32,7 @@ Ranked by impact per hour of effort.
 
 **Current** · patch references `/img/og-cover.jpg` but no file exists at that path.  
 **Impact** · when the URL is shared on LinkedIn, Teams, WhatsApp, Slack or email previews, there's no card image · it looks like a broken site, dramatically reducing click-through.  
-**Fix** · design a 1200 × 630 px cover image featuring the Earthed High Voltage brand, a HV cable termination photo (dark plum background per brand palette), and the tagline "SAPN-accredited HV specialists in SA". Save as `img/og-cover.jpg`. Create matching `img/favicon-32.png` and `img/apple-touch-icon.png`.  
+**Fix** · design a 1200 × 630 px cover image featuring the Earthed High Voltage brand, a HV cable termination photo (dark plum background per brand palette), and the tagline "SAPN approved contractor · HV specialists in SA". Save as `img/og-cover.jpg`. Create matching `img/favicon-32.png` and `img/apple-touch-icon.png`.  
 **ETA** · 30 minutes in Canva using your brand assets.
 
 ---
@@ -70,7 +70,7 @@ Ranked by impact per hour of effort.
 
 **Current** · static hero (based on your screenshot · "BATTERY" headline cut off, image overlay).  
 **Impact** · HV buyers (EPCs, developers, utility managers) want to see evidence of real work, not stock imagery. A 30-second looping video of actual Earthed crew on-site (crane lifting a Wilson TX, cable pulling, switching cubicle work) builds immediate credibility.  
-**Fix** · film a 30-60 second site reel at your next Nyrstar or Doosan shift (phone footage is fine, cut in Final Cut or CapCut). Compress to WebM + MP4, autoplay muted + loop, poster image for first frame. Caption overlay: "SAPN-accredited · 111 MW BESS · 24/7 emergency callout".  
+**Fix** · film a 30-60 second site reel at your next Nyrstar or Doosan shift (phone footage is fine, cut in Final Cut or CapCut). Compress to WebM + MP4, autoplay muted + loop, poster image for first frame. Caption overlay: "SAPN approved contractor · 111 MW BESS · 24/7 emergency callout".  
 **ETA** · 4 hours including filming + edit.  
 **Expected lift** · 20-40% increase in time-on-page and enquiry conversion.
 
@@ -88,9 +88,9 @@ Ranked by impact per hour of effort.
 
 ## 9 · Add verifiable trust signals above the fold
 
-**Current** · credentials (SAPN accredited, Nexans + Prysmian certified, HVOA) appear in body text.  
+**Current** · credentials (SAPN approved contractor, Nexans + Prysmian certified, HVOA) appear in body text.  
 **Impact** · in B2B infrastructure procurement, the first question is "are you qualified to touch this voltage?". Credentials buried in paragraph three don't close the trust gap fast enough.  
-**Fix** · add a horizontal trust bar directly below the hero · logos for SAPN Accredited, Nexans Certified, Prysmian Certified, Electranet, ISO 9001 (if held or planned), plus hard numbers · "PGE 336477 · $20M PL · 10-year workmanship warranty · 24/7 emergency response". No text, no fluff. Logos + numbers.  
+**Fix** · add a horizontal trust bar directly below the hero · logos for SAPN approved contractor, Nexans Certified, Prysmian Certified, Electranet, ISO 9001 (if held or planned), plus hard numbers · "PGE 336477 · $20M PL · 10-year workmanship warranty · 24/7 emergency response". No text, no fluff. Logos + numbers.  
 **ETA** · 2 hours to collect logo files + build the component.  
 **Expected lift** · 15-25% uplift in enquiry conversion from first-time visitors.
 

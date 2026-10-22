@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Enquiry received · Earthed High Voltage</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#4B345B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Josefin+Sans:wght@300;400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --plum: #4B345B; --plum-2: #6E5883; --ink: #24182E; --lilac: #D8C8EE; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    min-height: 100vh; min-height: 100svh;
+    display: flex; flex-direction: column;
+    background: radial-gradient(120% 90% at 50% 0%, var(--plum-2) 0%, var(--plum) 55%, var(--ink) 100%);
+    color: #fff; font: 400 16px/1.6 'Open Sans', system-ui, sans-serif;
+  }
+  header { padding: 24px clamp(16px, 4vw, 56px); }
+  header img { width: 120px; display: block; }
+  main {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    width: 100%; max-width: 640px; margin: 0 auto; padding: 32px 16px 64px;
+  }
+  .tag { font: 500 12px 'JetBrains Mono', monospace; letter-spacing: .22em; text-transform: uppercase; color: var(--lilac); margin: 0 0 20px; }
+  h1 { font: 300 clamp(34px, 7vw, 52px)/1.05 'Josefin Sans', sans-serif; margin: 0 0 20px; }
+  p { margin: 0 0 16px; color: rgba(255,255,255,.88); }
+  .urgent { margin-top: 28px; padding: 16px 18px; border-left: 3px solid var(--lilac); background: rgba(255,255,255,.07); }
+  .urgent a { color: #fff; font-weight: 600; }
+  .back {
+    align-self: flex-start; margin-top: 36px; display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px;
+    border: 1px solid rgba(255,255,255,.6); color: #fff; text-decoration: none;
+    font: 500 12px 'JetBrains Mono', monospace; letter-spacing: .24em; text-transform: uppercase;
+  }
+  .back:hover, .back:focus-visible { background: #fff; color: var(--plum); }
+  footer { padding: 20px clamp(16px, 4vw, 56px); font-size: 12px; color: rgba(255,255,255,.6); }
+</style>
+</head>
+<body>
+  <header><a href="/"><img src="/img/logo-white.png" alt="Earthed High Voltage"></a></header>
+  <main>
+    <p class="tag">Enquiry received</p>
+    <h1>Thanks. Your brief is with our team.</h1>
+    <p>We terminate and joint high voltage cables, and commission the plant they connect to. We'll review your enquiry and come back to you directly.</p>
+    <p class="urgent">HV fault or outage? Don't wait on email. Call <a href="tel:0433839284">0433 839 284</a>.</p>
+    <a class="back" href="/">Back to earthedhv.au</a>
+  </main>
+  <footer>© 2026 Earthed High Voltage Pty Ltd · PGE 336477</footer>
+</body>
+</html>
