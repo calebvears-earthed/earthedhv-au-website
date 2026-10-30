@@ -1,15 +1,29 @@
-# Earthed High Voltage — website
+# Earthed High Voltage
 
-Static site. `index.html` is fully self-contained (fonts, images, scripts inlined).
+Website for Earthed High Voltage Pty Ltd. Next.js app on Vercel. Production domain: [www.earthedhv.au](https://www.earthedhv.au).
 
-## Deploy (GitHub → Vercel)
-1. Create a new GitHub repo, upload the contents of this folder (index.html, vercel.json, README.md).
-2. In Vercel: Add New Project → import the repo → Framework preset: **Other** → Deploy. No build step.
-3. Custom domain: Vercel → Project → Settings → Domains → add `earthedhv.au` and `www.earthedhv.au`.
-   At your DNS host add:
-   - A record  @   → 76.76.21.21
-   - CNAME     www → cname.vercel-dns.com
-   Vercel issues SSL automatically once DNS propagates (usually under an hour).
+The visual system shared with [earthedenergy.au](https://earthedenergy.au) is documented in [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md). Tokens live in `design-system/`.
 
-## Contact form
-The enquiry form is front-end only. To make it send, point the form at Formspree / Web3Forms or a Vercel serverless function.
+## Scripts
+
+```bash
+npm install
+npm run dev
+npm run build
+```
+
+## Enquiry form
+
+`POST /api/quote` accepts JSON or a normal form post. Fields: `name`, `email`, `phone`, `message`.
+
+Delivery, in order:
+
+1. **Resend**, if `RESEND_API_KEY`, `RESEND_FROM_EMAIL` and `CONTACT_TO_EMAIL` are set.
+2. **Formspree**. `FORMSPREE_ID` overrides the form. Set `FORMSPREE_ID=off` to disable it. If unset, the route uses `mvkzjdwe`, the form id already on the previous site.
+3. If neither provider is active, the enquiry is written to the server log and the request still succeeds.
+
+Every accepted enquiry is also written to the server log.
+
+## Content
+
+Copy, project names and figures come from the previous earthedhv.au page. Company registration details (ABN 99 679 180 879, ACN 679 180 879) are the public ABR record for Earthed High Voltage Pty Ltd. Anything still needing Caleb is listed on the pull request.
