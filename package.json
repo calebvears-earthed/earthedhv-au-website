@@ -1,0 +1,22 @@
+{
+  "name": "earthedhv-au-website",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "check": "node scripts/check-copy.mjs",
+    "build": "node scripts/check-copy.mjs && next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^15.5.28",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "sharp": "^0.34.4",
+    "typescript": "^5.9.3"
+  }
+}
