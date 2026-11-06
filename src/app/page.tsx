@@ -10,7 +10,7 @@ import { aboutCopy, capabilities, projects, services, site } from "@/lib/content
 export const metadata: Metadata = {
   title: { absolute: "Earthed High Voltage | HV cable jointing, South Australia" },
   description:
-    "We terminate and joint high voltage cables. We work on substations and switchgear. Wind, solar and battery projects in South Australia. Licence PGE 336477.",
+    "We terminate and joint high voltage cables. We work on substations and switchgear. Wind, solar and battery projects in South Australia. Licence PGE 363823.",
   alternates: { canonical: "/" },
 };
 

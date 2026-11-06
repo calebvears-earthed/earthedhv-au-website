@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Safety and compliance",
   description:
-    "In-house safe operating procedures, HV switching permits and an ePermit. SA electrical contractor licence PGE 336477. ABN 99 679 180 879.",
+    "In-house safe operating procedures, HV switching permits and an ePermit. SA electrical contractor licence PGE 363823. ABN 99 679 180 879.",
   path: "/safety",
 });
 
