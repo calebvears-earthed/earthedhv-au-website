@@ -32,7 +32,7 @@ const mono = IBM_Plex_Mono({
 });
 
 const description =
-  "Earthed High Voltage terminates and joints high voltage cables, and works on substations and switchgear, for wind, solar and battery projects in South Australia. Licence PGE 336477.";
+  "Earthed High Voltage terminates and joints high voltage cables, and works on substations and switchgear, for wind, solar and battery projects in South Australia. Licence PGE 363823.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

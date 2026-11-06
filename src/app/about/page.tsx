@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "About",
   description:
-    "Earthed High Voltage was founded by Caleb Vears in the Adelaide Hills in 2024, after ten years in distribution power systems. Licence PGE 336477.",
+    "Earthed High Voltage was founded by Caleb Vears in the Adelaide Hills in 2024, after ten years in distribution power systems. Licence PGE 363823.",
   path: "/about",
 });
 

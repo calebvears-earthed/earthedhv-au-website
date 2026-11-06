@@ -25,4 +25,4 @@ Fields: `name`, `email`, `phone`, `message`.
 
 Home, About, Services (one page per service), Capabilities (battery and BESS, wind, solar, HV cable jointing and termination, switching, commissioning), Projects (one page per project), Safety and compliance, Contact, Privacy, and a 404.
 
-Copy and photographs come from the previous earthedhv.au page. Company details: ABN 99 679 180 879, ACN 679 180 879, SA electrical contractor licence PGE 336477.
+Copy and photographs come from the previous earthedhv.au page. Company details: ABN 99 679 180 879, ACN 679 180 879, SA electrical contractor licence PGE 363823.
