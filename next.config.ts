@@ -1,12 +1,31 @@
 import type { NextConfig } from "next";
 
+const legacy: { source: string; hash: string }[] = [
+  { source: "/about", hash: "about" },
+  { source: "/services", hash: "capabilities" },
+  { source: "/services/:path*", hash: "capabilities" },
+  { source: "/capabilities", hash: "capabilities" },
+  { source: "/capabilities/:path*", hash: "capabilities" },
+  { source: "/projects", hash: "projects" },
+  { source: "/projects/:path*", hash: "projects" },
+  { source: "/safety", hash: "safety" },
+  { source: "/contact", hash: "contact" },
+  { source: "/privacy", hash: "privacy" },
+  { source: "/thank-you", hash: "contact" },
+];
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 828, 1080, 1280, 1600, 1920],
-    imageSizes: [96, 160, 256, 384],
+  },
+  async redirects() {
+    return legacy.map((item) => ({
+      source: item.source,
+      destination: `/#${item.hash}`,
+      permanent: false,
+    }));
   },
   async headers() {
     return [
@@ -17,7 +36,6 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-          { key: "X-DNS-Prefetch-Control", value: "on" },
         ],
       },
       {

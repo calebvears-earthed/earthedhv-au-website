@@ -1,43 +1,26 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Instrument_Sans, Instrument_Serif } from "next/font/google";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { JsonLd } from "@/components/JsonLd";
-import { MobileBar } from "@/components/MobileBar";
-import { businessJsonLd } from "@/lib/schema";
+import { Josefin_Sans } from "next/font/google";
+import { jsonLdScript, businessJsonLd } from "@/lib/schema";
 import { site } from "@/lib/content";
 import "./globals.css";
 
-const sans = Instrument_Sans({
+const sans = Josefin_Sans({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-sans",
   display: "swap",
 });
 
-const serif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-  display: "swap",
-});
+const description = `High voltage cable jointing, substations and switchgear in South Australia. ${site.approval}. Licence ${site.licence}.`;
 
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
-  display: "swap",
-});
-
-const description =
-  "Earthed High Voltage terminates and joints high voltage cables, and works on substations and switchgear, for wind, solar and battery projects in South Australia. Licence PGE 336477.";
+const heroSrcSet = [640, 960, 1280, 1920, 2560]
+  .map((width) => `/images/hero/hero-${width}.webp ${width}w`)
+  .join(", ");
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Earthed High Voltage",
+    default: "Earthed High Voltage | South Australia",
     template: "%s | Earthed High Voltage",
   },
   description,
@@ -50,7 +33,14 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: "Earthed High Voltage",
     description,
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Earthed High Voltage, South Australia" }],
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 675,
+        alt: "Wind farm construction on a ridge at sunset",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -63,23 +53,34 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#100C14",
+  themeColor: "#2e3b94",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en-AU" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
+    <html lang="en-AU" className={sans.className}>
       <body>
+        <div className="photo-field">
+          <picture>
+            <source type="image/webp" srcSet={heroSrcSet} sizes="100vw" />
+            <img
+              src="/images/hero/hero-1920.jpg"
+              srcSet="/images/hero/hero-640.jpg 640w, /images/hero/hero-960.jpg 960w, /images/hero/hero-1280.jpg 1280w, /images/hero/hero-1920.jpg 1920w, /images/hero/hero-2560.jpg 2560w"
+              sizes="100vw"
+              width={3840}
+              height={2160}
+              alt="Wind farm construction on a ridge at sunset"
+              fetchPriority="high"
+            />
+          </picture>
+        </div>
         <a className="skip-link" href="#main">
           Skip to content
         </a>
-        <Header />
         <main id="main">{children}</main>
-        <Footer />
-        <MobileBar />
-        <JsonLd data={businessJsonLd()} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(businessJsonLd()) }} />
       </body>
     </html>
   );

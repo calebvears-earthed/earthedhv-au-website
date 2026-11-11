@@ -67,7 +67,7 @@ const og = await sharp({
     { input: Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
       <rect x="48" y="48" width="1104" height="534" fill="none" stroke="#6E5883"/>
       <text x="88" y="470" fill="#E4D4F4" font-family="Georgia, serif" font-size="28">South Australia</text>
-      <text x="88" y="520" fill="#6E5883" font-family="Georgia, serif" font-size="22">PGE 336477</text>
+      <text x="88" y="520" fill="#6E5883" font-family="Georgia, serif" font-size="22">PGE 363823</text>
     </svg>`), top: 0, left: 0 },
     { input: logo, top: 150, left: 88 },
   ])
