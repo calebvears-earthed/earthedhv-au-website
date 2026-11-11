@@ -4,15 +4,32 @@ import { about, capabilities, heroLines, projects, site } from "@/lib/content";
 export default function HomePage() {
   return (
     <>
-      <header className="top">
-        <nav aria-label="On this page">
-          <a href="#capabilities">Capabilities</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
-
       <section className="hero" aria-labelledby="hero-title">
+        <div className="photo-field">
+          <picture>
+            <source
+              type="image/webp"
+              srcSet="/images/hero/hero-640.webp 640w, /images/hero/hero-960.webp 960w, /images/hero/hero-1280.webp 1280w, /images/hero/hero-1920.webp 1920w, /images/hero/hero-2560.webp 2560w"
+              sizes="100vw"
+            />
+            <img
+              src="/images/hero/hero-1920.jpg"
+              srcSet="/images/hero/hero-640.jpg 640w, /images/hero/hero-960.jpg 960w, /images/hero/hero-1280.jpg 1280w, /images/hero/hero-1920.jpg 1920w, /images/hero/hero-2560.jpg 2560w"
+              sizes="100vw"
+              width={3840}
+              height={2160}
+              alt="Wind farm construction on a ridge at sunset"
+              fetchPriority="high"
+            />
+          </picture>
+        </div>
+        <header className="top">
+          <nav aria-label="On this page">
+            <a href="#capabilities">Capabilities</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </header>
         <div className="lockup">
           <img src="/logo.png" alt="Earthed High Voltage" width={420} height={109} />
           <h1 id="hero-title">
@@ -23,6 +40,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="sheet">
       <section className="block" id="about" aria-labelledby="about-title">
         <h2 id="about-title">{about.headline}</h2>
         <p>{about.body}</p>
@@ -101,6 +119,7 @@ export default function HomePage() {
           <a href="#privacy">Privacy</a>
         </p>
       </footer>
+      </div>
     </>
   );
 }
