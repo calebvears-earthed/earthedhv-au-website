@@ -73,23 +73,14 @@ export const projects = [
     alt: "High voltage straight joints prepared on collection cables",
   },
   {
-    title: "111 MW Barossa BESS",
+    title: "Full-site isolation and restoration",
     summary:
-      "Critical emergency response after a fault on the incoming underground cable. Given four days' notice, we designed a switching program to isolate the site, take the main transformer offline for its service window and re-energise the full BESS across a two-day coordinated operation.",
-    outcome: "Site safely isolated, service window completed, re-energised without incident.",
-    src: "/images/bess-rows.jpg",
-    width: 1600,
-    height: 1200,
-    alt: "Containerised battery units on a grid-scale battery site",
+      "A major underground cable fault required full-site isolation, coordinated HV switching and restoration of supply.",
   },
   {
-    title: "Tailem Bend BESS",
+    title: "Electrical permit supervision on a live grid-scale battery",
     summary:
-      "Listed separately from the Barossa isolation and restoration. Earthed's role on Tailem Bend is still being confirmed.",
-    src: "/images/inspection.jpg",
-    width: 1200,
-    height: 1600,
-    alt: "Open cabinet on a battery installation",
+      "Earthed HV provided independent electrical work permit supervision for the O&M contractor of a grid-scale battery in South Australia. Across an eight-month call-up engagement, the role covered electrical access and isolation permit approvals, review of safe work controls, pre-start coordination and contractor monitoring during planned works.",
   },
   {
     title: "Port Wakefield 5 MW",

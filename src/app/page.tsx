@@ -46,7 +46,9 @@ export default function HomePage() {
         <div className="proofs">
           {projects.map((project) => (
             <article key={project.title}>
-              <img src={project.src} alt={project.alt} width={project.width} height={project.height} />
+              {"src" in project && project.src ? (
+                <img src={project.src} alt={project.alt} width={project.width} height={project.height} />
+              ) : null}
               <h3>{project.title}</h3>
               <p>{project.summary}</p>
               {"outcome" in project && project.outcome ? <p>{project.outcome}</p> : null}
