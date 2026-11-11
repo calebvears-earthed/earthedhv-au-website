@@ -22,13 +22,7 @@ export const site = {
   },
 } as const;
 
-export const heroLines = ["Renewable energy", "High voltage", "South Australia"] as const;
-
-export const positioning = [
-  "We terminate and joint high voltage cables.",
-  "We work on substations and switchgear.",
-  "We do the work most electricians can't.",
-] as const;
+export const heroLines = ["Renewable energy", "High voltage"] as const;
 
 export const about = {
   headline: "The future of renewable energy at Earthed.",
@@ -81,12 +75,21 @@ export const projects = [
   {
     title: "111 MW Barossa BESS",
     summary:
-      "Critical emergency response after a fault on the 275 kV incoming cable. Given four days' notice, we designed a switching program to isolate the site, take the main transformer offline for its service window and re-energise the full BESS across a two-day coordinated operation.",
+      "Critical emergency response after a fault on the incoming underground cable. Given four days' notice, we designed a switching program to isolate the site, take the main transformer offline for its service window and re-energise the full BESS across a two-day coordinated operation.",
     outcome: "Site safely isolated, service window completed, re-energised without incident.",
     src: "/images/bess-rows.jpg",
     width: 1600,
     height: 1200,
     alt: "Containerised battery units on a grid-scale battery site",
+  },
+  {
+    title: "Tailem Bend BESS",
+    summary:
+      "Listed separately from the Barossa isolation and restoration. Earthed's role on Tailem Bend is still being confirmed.",
+    src: "/images/inspection.jpg",
+    width: 1200,
+    height: 1600,
+    alt: "Open cabinet on a battery installation",
   },
   {
     title: "Port Wakefield 5 MW",
@@ -97,5 +100,24 @@ export const projects = [
     width: 1200,
     height: 1600,
     alt: "Rows of solar modules on a utility-scale farm",
+  },
+  {
+    title: "Kerta Road",
+    summary:
+      "Emergency HV cable repair response at the 5 MW solar farm after a civil excavator strike severed sixteen underground 300 mm² HV distribution cables mid-build. Earthed High Voltage mobilised, staged the cuts, performed sixteen Raychem heat-shrink straight joints and the full post-joint IR and VLF test regime, and returned the asset to service.",
+    outcome: "16 cables repaired. Every joint IR and VLF tested. Asset back online by Caleb Vears.",
+    src: "/images/solar-trench.jpg",
+    width: 1200,
+    height: 1600,
+    alt: "Cables in a trench running beside a solar array at sunset",
+  },
+  {
+    title: "1200 mm² substation feeder",
+    summary:
+      "1200 mm² collection network feeder terminations: Nexans termination kits, elbows and feeder exits at the collector substation.",
+    src: "/images/junction-setup.jpg",
+    width: 1200,
+    height: 1600,
+    alt: "Collection cables dressed into an open inline junction box on a wind farm",
   },
 ] as const;

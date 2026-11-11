@@ -1,13 +1,10 @@
 import { ContactForm } from "@/components/ContactForm";
-import { about, capabilities, heroLines, positioning, projects, site } from "@/lib/content";
+import { about, capabilities, heroLines, projects, site } from "@/lib/content";
 
 export default function HomePage() {
   return (
     <>
       <header className="top">
-        <a className="logo" href="#main">
-          <img src="/logo.png" alt="Earthed High Voltage" width={420} height={109} />
-        </a>
         <nav aria-label="On this page">
           <a href="#capabilities">Capabilities</a>
           <a href="#projects">Projects</a>
@@ -16,17 +13,14 @@ export default function HomePage() {
       </header>
 
       <section className="hero" aria-labelledby="hero-title">
-        <h1 id="hero-title" className="lockup">
-          {heroLines.map((line) => (
-            <span key={line}>{line}</span>
-          ))}
-        </h1>
-        <p className="deck">{positioning.join(" ")}</p>
-        <p className="fine">
-          {site.licence}
-          <span aria-hidden="true"> · </span>
-          {site.approval}
-        </p>
+        <div className="lockup">
+          <img src="/logo.png" alt="Earthed High Voltage" width={420} height={109} />
+          <h1 id="hero-title">
+            {heroLines.map((line) => (
+              <span key={line}>{line}</span>
+            ))}
+          </h1>
+        </div>
       </section>
 
       <section className="block" id="about" aria-labelledby="about-title">
@@ -55,7 +49,7 @@ export default function HomePage() {
               <img src={project.src} alt={project.alt} width={project.width} height={project.height} />
               <h3>{project.title}</h3>
               <p>{project.summary}</p>
-              <p>{project.outcome}</p>
+              {"outcome" in project && project.outcome ? <p>{project.outcome}</p> : null}
             </article>
           ))}
         </div>
