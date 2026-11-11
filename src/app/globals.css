@@ -64,6 +64,20 @@ a { color: inherit; }
   max-height: 100svh;
 }
 
+@media (max-width: 800px) {
+  .photo-field { display: block; }
+  .photo-field img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
 main {
   position: relative;
   z-index: 1;
