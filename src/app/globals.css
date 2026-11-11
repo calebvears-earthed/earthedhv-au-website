@@ -1,8 +1,11 @@
 :root {
-  --sky: #2e3b94;
-  --ground: #453129;
-  --text: #ffffff;
-  color-scheme: dark;
+  --purple: #5c2454;
+  --purple-deep: #3e1638;
+  --paper: #f6f1ea;
+  --ink: #241820;
+  --muted: #4e4250;
+  --line: rgba(92, 36, 84, 0.22);
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -11,8 +14,8 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  color: var(--text);
-  background: var(--sky);
+  background: var(--paper);
+  color: var(--ink);
   font-size: 1.0625rem;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
@@ -20,16 +23,12 @@ body {
 
 img { max-width: 100%; height: auto; }
 
-h1, h2, h3, p { margin: 0; background: transparent; }
+h1, h2, h3, p { margin: 0; }
 
-h1, h2, h3, .deck, .fine, .block p, .colophon, .top a, .btn, .form-success, label {
-  text-shadow: 0 1px 2px rgba(8, 6, 20, 0.92), 0 0 14px rgba(8, 6, 20, 0.55);
-}
-
-a { color: inherit; }
+a { color: var(--purple); }
 
 :focus-visible {
-  outline: 2px solid #fff;
+  outline: 2px solid var(--purple);
   outline-offset: 3px;
 }
 
@@ -38,49 +37,39 @@ a { color: inherit; }
   left: 1rem;
   top: -4rem;
   z-index: 5;
-  background: #160e22;
+  background: var(--purple-deep);
   color: #fff;
   padding: 0.7rem 1rem;
-  text-shadow: none;
+  text-decoration: none;
 }
 
 .skip-link:focus { top: 1rem; }
 
-.photo-field {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
+.hero {
+  position: relative;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, var(--sky) 0%, var(--sky) 38%, var(--ground) 100%);
-  pointer-events: none;
+  overflow: hidden;
+  color: #fff;
+  padding: 4.5rem 1.25rem 2rem;
+}
+
+.photo-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .photo-field img {
-  width: min(100vw, calc(100svh * 16 / 9));
-  height: auto;
-  max-width: 100vw;
-  max-height: 100svh;
-}
-
-@media (max-width: 800px) {
-  .photo-field { display: block; }
-  .photo-field img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    max-height: none;
-    object-fit: cover;
-    object-position: center center;
-  }
-}
-
-main {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .top {
@@ -101,7 +90,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 0.25rem 1rem;
+  gap: 0.25rem 1.1rem;
   background: transparent;
 }
 
@@ -109,24 +98,20 @@ main {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+  color: #fff;
   text-decoration: none;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-size: 0.78rem;
   background: transparent;
+  text-shadow: 0 1px 2px rgba(20, 8, 18, 0.85);
 }
 
-.hero {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-inline: 1.25rem;
-}
+.hero :focus-visible { outline-color: #fff; }
 
 .lockup {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,40 +137,67 @@ main {
   text-transform: uppercase;
   line-height: 1.35;
   text-align: left;
+  color: #fff;
   background: transparent;
+  text-shadow: 0 1px 2px rgba(20, 8, 18, 0.9), 0 0 14px rgba(20, 8, 18, 0.45);
 }
 
-.block, .colophon {
-  width: min(40rem, calc(100% - 2.5rem));
+.sheet {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.block, .colophon, .missing {
+  width: min(42rem, calc(100% - 2.5rem));
   margin: 0 auto;
   padding: 3.5rem 0;
   display: grid;
   gap: 0.9rem;
-  background: transparent;
 }
 
-.block h2, .proofs h3, .cap-list h3 {
+.missing { min-height: 70vh; align-content: center; }
+
+.eyebrow {
+  color: var(--purple);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.block h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 400;
-  letter-spacing: 0.04em;
+  color: var(--purple-deep);
+  scroll-margin-top: 1.25rem;
 }
 
-.block h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); scroll-margin-top: 1.25rem; }
+.cap-list h3, .proofs h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--purple);
+}
+
+.block p, .colophon p { color: var(--muted); }
 
 .cap-list, .proofs {
   list-style: none;
-  margin: 0;
+  margin: 0.4rem 0 0;
   padding: 0;
   display: grid;
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
 
-.cap-list h3, .proofs h3 { font-size: 1.35rem; }
+.cap-list li, .proofs article {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
 
 .proofs img {
   width: 100%;
   height: auto;
   display: block;
-  background: transparent;
 }
 
 .enquiry-form, .form-success { display: grid; gap: 0.9rem; max-width: 36rem; }
@@ -193,15 +205,16 @@ main {
 .enquiry-form label {
   display: grid;
   gap: 0.35rem;
+  color: var(--purple-deep);
   font-size: 0.95rem;
 }
 
 .enquiry-form input, .enquiry-form textarea {
   width: 100%;
   background: transparent;
-  color: #fff;
+  color: var(--ink);
   border: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1.5px solid var(--purple);
   border-radius: 0;
   padding: 0.7rem 0;
   font: inherit;
@@ -210,26 +223,28 @@ main {
 .btn {
   justify-self: start;
   min-height: 48px;
-  padding: 0.7rem 1.1rem;
-  background: transparent;
+  padding: 0.7rem 1.15rem;
+  background: var(--purple);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  border: 0;
   font: inherit;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.btn:hover { background: rgba(255, 255, 255, 0.12); }
+.btn:hover { background: var(--purple-deep); }
 
 .btn:disabled { opacity: 0.7; }
 
-.form-error { color: #ffe4ea; }
+.form-error { color: #7a1830; }
 
-.hp {
-  position: absolute;
-  left: -9999px;
+.hp { position: absolute; left: -9999px; }
+
+.colophon {
+  font-size: 0.95rem;
+  padding-bottom: 4rem;
+  border-top: 1px solid var(--line);
 }
-
-.colophon { font-size: 0.95rem; padding-bottom: 4rem; }
 
 @media (max-width: 520px) {
   .lockup { gap: 0.75rem; }
