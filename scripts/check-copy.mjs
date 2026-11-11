@@ -8,6 +8,7 @@ const skipDirs = new Set(["node_modules", ".next", ".git", "public", "img", "out
 
 const rules = [
   { name: "em dash", re: /\u2014|&mdash;|&#8212;|&#x2014;/i },
+  { name: "en dash", re: /\u2013|&ndash;|&#8211;|&#x2013;/i },
   { name: "SAPN accreditation claim", re: /SAPN[\s-]*accredited/i },
   { name: "ElectraNet claim", re: /electranet/i },
   { name: "Troy named as a person", re: /\bTroy\b/ },
@@ -18,7 +19,7 @@ function scan(text) {
   return rules.filter((rule) => rule.re.test(text)).map((rule) => rule.name);
 }
 
-const selfTest = scan("Sample \u2014 SAPN Accredited ElectraNet Troy Joshua");
+const selfTest = scan("Sample \u2014 \u2013 SAPN Accredited ElectraNet Troy Joshua");
 if (selfTest.length !== rules.length) {
   console.error("Copy check self-test failed. Expected every rule to match.");
   console.error(selfTest);

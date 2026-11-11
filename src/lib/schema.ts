@@ -1,4 +1,4 @@
-import { capabilities, services, site } from "@/lib/content";
+import { capabilities, site } from "@/lib/content";
 
 export function businessJsonLd() {
   return {
@@ -12,6 +12,7 @@ export function businessJsonLd() {
     logo: `${site.url}/logo.png`,
     telephone: site.phoneTel,
     email: site.email,
+    description: `${site.name}. ${site.approval}. SA electrical contractor licence ${site.licence}.`,
     founder: { "@type": "Person", name: site.founder },
     foundingDate: site.founded,
     address: {
@@ -26,32 +27,7 @@ export function businessJsonLd() {
       { "@type": "PropertyValue", name: "ABN", value: site.abn },
       { "@type": "PropertyValue", name: "ACN", value: site.acn },
     ],
-    knowsAbout: [...services.map((item) => item.title), ...capabilities.map((item) => item.title)],
-  };
-}
-
-export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: `${site.url}${item.path}`,
-    })),
-  };
-}
-
-export function serviceJsonLd(name: string, description: string, path: string) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name,
-    description,
-    url: `${site.url}${path}`,
-    provider: { "@id": `${site.url}/#business` },
-    areaServed: site.regionName,
+    knowsAbout: capabilities.map((item) => item.title),
   };
 }
 

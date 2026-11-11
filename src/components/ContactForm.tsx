@@ -37,15 +37,16 @@ export function ContactForm() {
   if (status === "sent") {
     return (
       <div className="form-success" role="status" tabIndex={-1}>
-        <p className="eyebrow">Received</p>
-        <h2>Enquiry sent.</h2>
-        <p>We will reply from {site.email}. If it is urgent, call {site.phoneDisplay}.</p>
+        <h3>Enquiry sent.</h3>
+        <p>
+          We will reply from {site.email}. If it is urgent, call {site.phoneDisplay}.
+        </p>
       </div>
     );
   }
 
   return (
-    <form className="enquiry-form" action={site.formspree} method="POST" onSubmit={onSubmit} noValidate={false}>
+    <form className="enquiry-form" action={site.formspree} method="POST" onSubmit={onSubmit}>
       <input type="hidden" name="_subject" value="Enquiry from earthedhv.au" />
       <p className="hp" aria-hidden="true">
         <label>
@@ -67,19 +68,16 @@ export function ContactForm() {
       </label>
       <label>
         Brief on your enquiry
-        <textarea name="message" rows={6} required />
+        <textarea name="message" rows={5} required />
       </label>
       {status === "error" ? (
         <p className="form-error" role="alert">
           {error}
         </p>
       ) : null}
-      <button className="btn btn-light" type="submit" disabled={status === "sending"}>
+      <button className="btn" type="submit" disabled={status === "sending"}>
         {status === "sending" ? "Sending" : "Send enquiry"}
       </button>
-      <p className="form-note">
-        Sent to {site.email}. See our <a href="/privacy">privacy notice</a> for what we keep.
-      </p>
     </form>
   );
 }

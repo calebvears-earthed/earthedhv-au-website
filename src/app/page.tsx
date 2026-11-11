@@ -1,195 +1,106 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { CapabilityMap } from "@/components/CapabilityMap";
-import { CtaBand } from "@/components/CtaBand";
-import { Photo } from "@/components/Photo";
-import { Stats } from "@/components/Stats";
-import { Timeline } from "@/components/Timeline";
-import { aboutCopy, capabilities, projects, services, site } from "@/lib/content";
-
-export const metadata: Metadata = {
-  title: { absolute: "Earthed High Voltage | HV cable jointing, South Australia" },
-  description:
-    "We terminate and joint high voltage cables. We work on substations and switchgear. Wind, solar and battery projects in South Australia. Licence PGE 336477.",
-  alternates: { canonical: "/" },
-};
-
-const featured = ["goyder-south", "barossa-bess", "port-wakefield"];
+import { ContactForm } from "@/components/ContactForm";
+import { about, capabilities, heroLines, projects, site } from "@/lib/content";
 
 export default function HomePage() {
-  const selected = projects.filter((project) => featured.includes(project.slug));
-
   return (
     <>
-      <section className="hero">
-        <div className="hero-media">
-          <Photo
-            src="/images/wind-construction.jpg"
-            alt="Wind farm construction at sunrise"
-            sizes="100vw"
-            priority
-            position="center 40%"
-            ratio="16 / 9"
-          />
-        </div>
-        <div className="hero-scrim" />
-        <div className="hero-copy">
-          <p className="eyebrow">Renewable energy · High voltage · South Australia</p>
-          <h1>{site.positioning[0]}</h1>
-          <p className="lede">
-            {site.positioning[1]} {site.positioning[2]}
-          </p>
-          <div className="hero-actions">
-            <Link className="btn btn-light" href="/contact">
-              Request a quote
-            </Link>
-            <a className="btn btn-ghost" href={`tel:${site.phoneTel}`}>
-              Call {site.phoneDisplay}
-            </a>
-          </div>
-        </div>
-      </section>
+      <header className="top">
+        <nav aria-label="On this page">
+          <a href="#capabilities">Capabilities</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
 
-      <dl className="cred-bar">
-        <div>
-          <dt>Licence</dt>
-          <dd>{site.licence}</dd>
-        </div>
-        <div>
-          <dt>ABN</dt>
-          <dd>{site.abn}</dd>
-        </div>
-        <div>
-          <dt>Based</dt>
-          <dd>{site.locality}</dd>
-        </div>
-        <div>
-          <dt>Founded</dt>
-          <dd>
-            {site.founded}, {site.founder}
-          </dd>
-        </div>
-      </dl>
-
-      <section className="section" aria-labelledby="about-title">
-        <div className="wrap split">
-          <div>
-            <p className="eyebrow">01 · About</p>
-            <h2 id="about-title">{aboutCopy.headline}</h2>
-          </div>
-          <div className="prose">
-            {aboutCopy.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="lockup">
+          <img src="/logo.png" alt="Earthed High Voltage" width={420} height={109} />
+          <h1 id="hero-title">
+            {heroLines.map((line) => (
+              <span key={line}>{line}</span>
             ))}
-            <p>
-              <Link className="text-link" href="/about">
-                About Earthed
-              </Link>
-            </p>
-          </div>
+          </h1>
         </div>
       </section>
 
-      <section className="section tight" aria-labelledby="stats-title">
-        <div className="wrap section-head">
-          <p className="eyebrow">Record</p>
-          <h2 id="stats-title">Work already in the ground.</h2>
-        </div>
-        <Stats />
+      <section className="block" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">{about.headline}</h2>
+        <p>{about.body}</p>
+        <p id="safety">{about.safety}</p>
       </section>
 
-      <section className="section" aria-labelledby="services-title">
-        <div className="wrap">
-          <div className="section-head">
-            <p className="eyebrow">02 · Services</p>
-            <h2 id="services-title">The work we are asked to do.</h2>
-          </div>
-          <ul className="index-list">
-            {services.map((service) => (
-              <li key={service.slug}>
-                <Link href={`/services/${service.slug}`}>
-                  <span className="idx">{service.index}</span>
-                  <h3>{service.title}</h3>
-                  <span>{service.summary}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <section className="block" id="capabilities" aria-labelledby="capabilities-title">
+        <h2 id="capabilities-title">Capabilities</h2>
+        <ul className="cap-list">
+          {capabilities.map((item) => (
+            <li key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <section className="section tight" aria-labelledby="map-title">
-        <div className="wrap-wide">
-          <div className="section-head">
-            <p className="eyebrow">03 · Capabilities</p>
-            <h2 id="map-title">Where the cable meets the plant.</h2>
-            <p className="lede">
-              Select a point on the diagram. Wind, solar and battery collect through the joints, then the switchgear, then commissioning.
-            </p>
-          </div>
-          <CapabilityMap capabilities={capabilities} />
+      <section className="block" id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">Selected work</h2>
+        <div className="proofs">
+          {projects.map((project) => (
+            <article key={project.title}>
+              {"src" in project && project.src ? (
+                <img src={project.src} alt={project.alt} width={project.width} height={project.height} />
+              ) : null}
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+              {"outcome" in project && project.outcome ? <p>{project.outcome}</p> : null}
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="section" aria-labelledby="projects-title">
-        <div className="wrap-wide">
-          <div className="section-head">
-            <p className="eyebrow">04 · Projects</p>
-            <h2 id="projects-title">Selected work.</h2>
-          </div>
-          <div className="card-grid thirds">
-            {selected.map((project) => (
-              <Link className="media-card" key={project.slug} href={`/projects/${project.slug}`}>
-                <Photo
-                  src={project.image.src}
-                  alt=""
-                  position={project.image.position}
-                  sizes="(min-width: 1080px) 33vw, 100vw"
-                  ratio="4 / 5"
-                />
-                <span className="scrim" />
-                <span className="media-card-body">
-                  <span className="idx">
-                    {project.index} · {project.sector}
-                  </span>
-                  <h3>{project.title}</h3>
-                  {project.outcome ? <p>{project.outcome}</p> : null}
-                </span>
-              </Link>
-            ))}
-          </div>
-          <p style={{ marginTop: "1.25rem" }}>
-            <Link className="text-link" href="/projects">
-              Full project record
-            </Link>
-          </p>
-        </div>
+      <section className="block" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <p>{about.contactLine}</p>
+        <p>
+          <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
+          <span aria-hidden="true"> · </span>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+        <ContactForm />
       </section>
 
-      <section className="section tight" aria-labelledby="timeline-title">
-        <div className="wrap split">
-          <div>
-            <p className="eyebrow">05 · Sequence</p>
-            <h2 id="timeline-title">How the practice was built.</h2>
-          </div>
-          <Timeline />
-        </div>
+      <section className="block" id="privacy" aria-labelledby="privacy-title">
+        <h2 id="privacy-title">Privacy</h2>
+        <p>This notice is for earthedhv.au only. Earthed Energy is a separate site.</p>
+        <p>
+          The enquiry form collects your name, email, phone and the message you write. We use them to reply and, if you ask, to prepare a quote. We do not sell personal information.
+        </p>
+        <p>
+          The form is delivered by Formspree to {site.email}. This site does not set advertising cookies.
+        </p>
+        <p>Email {site.email} if you want a copy of an enquiry or want it deleted.</p>
       </section>
 
-      <section className="section tight">
-        <div className="wrap">
-          <aside className="sister-note">
-            <p className="eyebrow">Earthed Energy</p>
-            <h2>Part of the Earthed Energy group.</h2>
-            <p>{site.sister.note}</p>
-            <p>
-              <a href={site.sister.href}>earthedenergy.au</a>
-            </p>
-          </aside>
-        </div>
-      </section>
-
-      <CtaBand />
+      <footer className="colophon">
+        <p>
+          {site.legalName}
+          <span aria-hidden="true"> · </span>
+          SA electrical contractor licence {site.licence}
+          <span aria-hidden="true"> · </span>
+          ABN {site.abn}
+          <span aria-hidden="true"> · </span>
+          ACN {site.acn}
+          <span aria-hidden="true"> · </span>
+          {site.approval}
+        </p>
+        <p>
+          <a href={site.sister.href}>{site.sister.name}</a>
+          <span aria-hidden="true"> · </span>
+          {site.sister.note}
+        </p>
+        <p>
+          <a href="#privacy">Privacy</a>
+        </p>
+      </footer>
     </>
   );
 }
