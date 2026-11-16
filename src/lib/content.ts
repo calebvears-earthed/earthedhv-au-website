@@ -1,3 +1,5 @@
+const licence = "PGE 363823";
+
 export const site = {
   name: "Earthed High Voltage",
   legalName: "Earthed High Voltage Pty Ltd",
@@ -5,10 +7,10 @@ export const site = {
   email: "calebvears@earthedhv.au",
   phoneDisplay: "0433 839 284",
   phoneTel: "+61433839284",
-  licence: "PGE 363823",
+  licence,
   abn: "99 679 180 879",
   acn: "679 180 879",
-  approval: "SAPN approved contractor",
+  credential: `Licensed high voltage electrical contractor in South Australia (${licence})`,
   locality: "Adelaide Hills",
   region: "SA",
   regionName: "South Australia",
@@ -85,7 +87,7 @@ export const projects = [
   {
     title: "Port Wakefield 5 MW",
     summary:
-      "Our first experience managing an EPC site. All electrical components were carefully undertaken and complied by Earthed. Battling the winter months, our team achieved handover within the 16-week timeframe set by the client. 8,000+ panels, 20 combiner boxes, 4 inverter units. 5 MW battery, with provisions for a bitcoin mine addition. HV switchroom constructed and commissioned.",
+      "Our first experience managing an EPC site. All electrical components were carefully undertaken and complied by Earthed. Battling the winter months, handover was achieved within the 16-week timeframe set by the client. The work was delivered with licensed, accredited subcontract partners. 8,000+ panels, 20 combiner boxes, 4 inverter units. 5 MW battery, with provisions for a bitcoin mine addition. HV switchroom constructed and commissioned.",
     outcome: "Handed over in 16 weeks: grid-connected, commissioned and operational.",
     src: "/images/solar-panels.jpg",
     width: 1200,

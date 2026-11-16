@@ -90,7 +90,7 @@ export default function HomePage() {
           <span aria-hidden="true"> · </span>
           ACN {site.acn}
           <span aria-hidden="true"> · </span>
-          {site.approval}
+          {site.credential}
         </p>
         <p>
           <a href={site.sister.href}>{site.sister.name}</a>

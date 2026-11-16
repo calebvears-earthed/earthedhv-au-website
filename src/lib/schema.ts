@@ -12,7 +12,7 @@ export function businessJsonLd() {
     logo: `${site.url}/logo.png`,
     telephone: site.phoneTel,
     email: site.email,
-    description: `${site.name}. ${site.approval}. SA electrical contractor licence ${site.licence}.`,
+    description: `${site.name}. ${site.credential}.`,
     founder: { "@type": "Person", name: site.founder },
     foundingDate: site.founded,
     address: {
