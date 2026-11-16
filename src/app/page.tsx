@@ -1,5 +1,6 @@
 import { ContactForm } from "@/components/ContactForm";
 import { about, capabilities, heroLines, projects, site } from "@/lib/content";
+import { businessJsonLd, jsonLdScript } from "@/lib/schema";
 
 export default function HomePage() {
   return (
@@ -101,6 +102,7 @@ export default function HomePage() {
           <a href="#privacy">Privacy</a>
         </p>
       </footer>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(businessJsonLd()) }} />
     </>
   );
 }

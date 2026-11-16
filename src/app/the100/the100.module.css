@@ -1,0 +1,344 @@
+.page {
+  --paper: #f5f1e8;
+  --lilac: #e9ddff;
+  --mist: #c9b8f0;
+  --plum: #5e2d89;
+  --ink: #221540;
+  position: relative;
+  z-index: 1;
+  color: var(--paper);
+  min-height: 100svh;
+}
+
+.page h1,
+.page h2,
+.page h3,
+.page label {
+  text-shadow: none;
+}
+
+.ground {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(80% 42% at 50% -8%, rgba(94, 45, 137, 0.55), transparent 58%),
+    linear-gradient(180deg, #2b1550 0%, #221540 46%, #1a1028 100%);
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: min(38rem, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: 2.4rem 0 3.25rem;
+  display: grid;
+  gap: 2.15rem;
+}
+
+.mark {
+  display: grid;
+  gap: 0.7rem;
+  justify-items: start;
+}
+
+.mark img {
+  height: 38px;
+  width: auto;
+}
+
+.presents {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.presents a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+.hero {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.hero h1 {
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.line,
+.lineSub {
+  display: block;
+}
+
+.line {
+  font-size: clamp(1.85rem, 8.8vw, 4.15rem);
+  text-wrap: balance;
+}
+
+.lineSub {
+  margin-top: 0.45rem;
+  font-size: clamp(1.35rem, 4.6vw, 1.85rem);
+  line-height: 1.25;
+  color: var(--lilac);
+}
+
+.lede,
+.note p {
+  font-size: 1.0625rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.35rem;
+  align-items: center;
+  margin-top: 0.15rem;
+}
+
+.actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-underline-offset: 0.2em;
+}
+
+.form {
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 380px) {
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .dot {
+    display: none;
+  }
+}
+
+.section {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.section h2 {
+  font-size: clamp(1.55rem, 4vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  scroll-margin-top: 1rem;
+}
+
+.note {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.15rem 0 0.15rem 0.95rem;
+  border-left: 1px solid rgba(201, 184, 240, 0.55);
+}
+
+.note p {
+  margin: 0;
+}
+
+.sign {
+  margin: 0.15rem 0 0;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--paper);
+}
+
+.offers,
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+
+.offers {
+  gap: 0;
+}
+
+.offers li {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid rgba(201, 184, 240, 0.35);
+}
+
+.offers h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.offers p,
+.steps li {
+  margin: 0;
+}
+
+.counter {
+  margin: 0.15rem 0 0;
+  color: var(--lilac);
+  letter-spacing: 0.04em;
+}
+
+.steps {
+  gap: 0.7rem;
+  counter-reset: visit;
+}
+
+.steps li {
+  counter-increment: visit;
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  column-gap: 0.55rem;
+  align-items: baseline;
+}
+
+.steps li::before {
+  content: counter(visit);
+  color: var(--lilac);
+  font-variant-numeric: tabular-nums;
+}
+
+.form,
+.success {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.form label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.form input {
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  padding: 0.65rem 0;
+  background: transparent;
+  color: var(--paper);
+  border: 0;
+  border-bottom: 1px solid rgba(233, 221, 255, 0.75);
+  border-radius: 0;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.form input::placeholder {
+  color: rgba(201, 184, 240, 0.72);
+}
+
+.form input:focus-visible {
+  outline: none;
+  border-bottom-color: var(--paper);
+}
+
+.form input:user-invalid {
+  border-bottom-color: #ffe4ea;
+}
+
+.form input:-webkit-autofill,
+.form input:-webkit-autofill:hover,
+.form input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--paper);
+  caret-color: var(--paper);
+  box-shadow: 0 0 0 1000px #221540 inset;
+  transition: background-color 9999s ease-out;
+}
+
+.hint {
+  color: var(--mist);
+  font-size: 0.92rem;
+}
+
+.submit {
+  justify-self: stretch;
+  min-height: 52px;
+  margin-top: 0.2rem;
+  padding: 0.75rem 1.1rem;
+  border: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  text-shadow: none;
+}
+
+.submit:hover {
+  background: var(--lilac);
+}
+
+.submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.error {
+  margin: 0;
+  color: #ffe4ea;
+}
+
+.error a,
+.success a,
+.call a {
+  text-underline-offset: 0.18em;
+}
+
+.success {
+  padding: 0.2rem 0 0.4rem;
+}
+
+.success h3 {
+  font-size: 1.45rem;
+  font-weight: 400;
+}
+
+.call {
+  margin: 0;
+}
+
+.fine {
+  display: grid;
+  gap: 0.75rem;
+  color: var(--mist);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.fine p {
+  margin: 0;
+}
+
+.fine a {
+  text-underline-offset: 0.18em;
+}
+
+@media (min-width: 800px) {
+  .wrap {
+    padding-top: 4.25rem;
+  }
+
+  .mark img {
+    height: 46px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page {
+    scroll-behavior: auto;
+  }
+}
