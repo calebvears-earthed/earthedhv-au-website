@@ -15,7 +15,7 @@ npm run build
 
 `npm run build` runs the copy check first. The check fails when banned wording is present. Patterns live in `scripts/check-copy.mjs`, which is excluded from the scan.
 
-The footer uses the words "SAPN approved contractor".
+The footer names the company, SA electrical contractor licence PGE 363823, the ABN and the ACN, and states that Earthed is a licensed high voltage electrical contractor in South Australia.
 
 ## Page
 

@@ -11,7 +11,7 @@ const sans = Josefin_Sans({
   display: "swap",
 });
 
-const description = `High voltage cable jointing, substations and switchgear in South Australia. ${site.approval}. Licence ${site.licence}.`;
+const description = `High voltage cable jointing, substations and switchgear in South Australia. ${site.credential}.`;
 
 const heroSrcSet = [640, 960, 1280, 1920, 2560]
   .map((width) => `/images/hero/hero-${width}.webp ${width}w`)
